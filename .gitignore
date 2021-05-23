@@ -1,1 +1,7 @@
 /.idea/
+/assembly.bat
+/start.bat
+/server.jar
+/target/
+/lib/freemarker-2.3.31.jar
+/lib/freemarker-2.3.31-javadoc.jar
