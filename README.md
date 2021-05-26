@@ -3,5 +3,9 @@ https://stepik.org/course/146/
 
 Задачи по курсу Разработка веб сервиса на Java (часть 1)
 
-JAVA_TOOL_OPTIONS
--Dfile.encoding=UTF-8
+переменная среды, чтобы кракозябр в консоли не было
+
+JAVA_TOOL_OPTIONS    |
+---------------------|
+-Dfile.encoding=UTF-8| 
+
