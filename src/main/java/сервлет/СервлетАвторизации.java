@@ -2,6 +2,7 @@ package сервлет;
 
 import бд.наборДанных.НаборДанныхПользователя;
 import логика.базовый.СервисУчеток;
+
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +22,7 @@ public class СервлетАвторизации extends HttpServlet {
         boolean успех = (пользователь != null) && (запрос.getParameter("password")
                 .equals(пользователь.getПароль()));
         ответ.setContentType("text/html;charset=utf-8");
-        if (успех){
+        if (успех) {
             ответ.getWriter().print("Authorized: " + пользователь.getЛогин());
             ответ.setStatus(HttpServletResponse.SC_OK);
         } else {
