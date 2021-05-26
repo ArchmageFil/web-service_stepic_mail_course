@@ -1,13 +1,11 @@
 package сервлет;
 
-import акки.ПрофильПользователя;
 import акки.СервисУчеток;
+import бд.наборДанных.НаборДанныхПользователя;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class СервлетРегистрации extends HttpServlet {
     private final СервисУчеток сервисУчеток;
@@ -17,10 +15,9 @@ public class СервлетРегистрации extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest запрос, HttpServletResponse resp) throws ServletException, IOException {
-        сервисУчеток.добавитьПользователяПоЛогину(new ПрофильПользователя(
+    protected void doPost(HttpServletRequest запрос, HttpServletResponse resp) {
+        сервисУчеток.добавитьПользователя(new НаборДанныхПользователя(
                 запрос.getParameter("login"),
-                запрос.getParameter("password"),
-                запрос.getParameter("login")));
+                запрос.getParameter("password")));
     }
 }

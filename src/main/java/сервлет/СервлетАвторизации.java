@@ -1,10 +1,8 @@
 package сервлет;
 
-import com.google.gson.Gson;
-import акки.ПрофильПользователя;
 import акки.СервисУчеток;
+import бд.наборДанных.НаборДанныхПользователя;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,15 +16,13 @@ public class СервлетАвторизации extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest запрос, HttpServletResponse ответ) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest запрос, HttpServletResponse ответ) throws IOException {
 
-        ПрофильПользователя пользователь = сервисУчеток.получитьПрофильПоЛогину(запрос.getParameter("login"));
+        НаборДанныхПользователя пользователь = сервисУчеток.получитьПрофильПоЛогину(запрос.getParameter("login"));
         boolean успех = (пользователь != null) && (запрос.getParameter("password")
                 .equals(пользователь.getПароль()));
         ответ.setContentType("text/html;charset=utf-8");
         if (успех){
-//            String ответВЖисоне = new Gson().toJson(пользователь);
-//            ответ.getWriter().print(ответВЖисоне);
             ответ.getWriter().print("Authorized: " + пользователь.getЛогин());
             ответ.setStatus(HttpServletResponse.SC_OK);
         } else {
