@@ -1,18 +1,19 @@
 package акки;
 
 import lombok.Value;
-import бд.БДсервис;
 import бд.наборДанных.НаборДанныхПользователя;
-
+import логика.базовый.БДсервис;
+import логика.базовый.СервисУчеток;
 import java.util.HashMap;
 import java.util.Map;
 
-@Value @SuppressWarnings("unused")
-public class СервисУчеток {
+@Value
+@SuppressWarnings("unused")
+public class СервисУчетокПретворение implements СервисУчеток {
     БДсервис бд;
     Map<String, НаборДанныхПользователя> входПоИдСессии;
 
-    public СервисУчеток(БДсервис бд) {
+    public СервисУчетокПретворение(БДсервис бд) {
         this.бд = бд;
         входПоИдСессии = new HashMap<>();
     }

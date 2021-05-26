@@ -8,14 +8,15 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import бд.дао.ДаоПользователя;
 import бд.наборДанных.НаборДанныхПользователя;
+import логика.базовый.БДсервис;
 
-public class БДсервис {
+public class БДсервисПретворение implements БДсервис {
     private static final String hibernate_show_sql = "true";
     private static final String hibernate_hbm2ddl_auto = "validate";//validate
 
     private final SessionFactory фабрикаСессий;
 
-    public БДсервис() {
+    public БДсервисПретворение() {
         фабрикаСессий = создатьФабрикуСессий(КонфигурацияMySQL());
     }
 

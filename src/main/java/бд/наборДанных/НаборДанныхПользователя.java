@@ -1,7 +1,6 @@
 package бд.наборДанных;
 
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 

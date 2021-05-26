@@ -5,9 +5,11 @@ import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import акки.СервисУчеток;
-import бд.БДсервис;
+import акки.СервисУчетокПретворение;
+import бд.БДсервисПретворение;
 import бд.наборДанных.НаборДанныхПользователя;
+import логика.базовый.БДсервис;
+import логика.базовый.СервисУчеток;
 import сервлет.СервлетАвторизации;
 import сервлет.СервлетНаЗеркало;
 import сервлет.СервлетРегистрации;
@@ -16,8 +18,8 @@ public class Главный {
     public static final String auth = "/sign" + "in";
 
     public static void main(String[] args) throws Exception {
-        БДсервис бДсервис = new БДсервис();
-        СервисУчеток сервисУчеток = new СервисУчеток(бДсервис);
+        БДсервис бДсервис = new БДсервисПретворение();
+        СервисУчеток сервисУчеток = new СервисУчетокПретворение(бДсервис);
 
         сервисУчеток.добавитьПользователя(new НаборДанныхПользователя("admin", "admin"));
         сервисУчеток.добавитьПользователя(new НаборДанныхПользователя("test", "test"));
